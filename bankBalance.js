@@ -22,16 +22,16 @@ function calculateBalances(operaciones) {
 
     let depósitos = operaciones.filter(num => num > 0);
     let saldoTotalDepósitos = depósitos.reduce((acum, num) => acum + num, 0);
-    let mensajeSaldoCliente = `El saldo total de depósitos es: $${saldoTotalDepósitos}`;
+    let mensajeSaldoCliente = `El monto total de los depósitos es de: $${saldoTotalDepósitos}`;
 
 
     let retiros = operaciones.filter(num => num < 0);
     let saldoActualRetiros = retiros.reduce((acum, num) => acum + num, 0);
-    let mensajeRetiroCliente = `El saldo actual de retiros es: $${saldoActualRetiros}`;
+    let mensajeRetiroCliente = `El monto total de los retiros es de: $${Math.abs(saldoActualRetiros)}`;
 
 
     let saldoActualCliente = (saldoTotalDepósitos + saldoActualRetiros);
-    let mensajeSaldoActualCliente = `El saldo actual del cliente es: $${saldoActualCliente}`;
+    let mensajeSaldoActualCliente = `su saldo actual en la cuenta es de: $${saldoActualCliente}`;
 
     return {
         mensajeSaldoCliente,
@@ -41,7 +41,7 @@ function calculateBalances(operaciones) {
 
 }
 
-console.log(calculateBalances(operaciones));
+// console.log(calculateBalances(operaciones));
 
 
 // 5. Crear otra función llamada bankBalance() que reciba como parámetros el
@@ -51,32 +51,42 @@ console.log(calculateBalances(operaciones));
 // saldo actual
 
 
-function bankBalance(operaciones){
+function bankBalance(operaciones) {
 
-    let nombreApellido = prompt("Ingrese su Nombre y Apellido: ");
-    let mensajeNombre = `Su Nombre y Apellido es: ${nombreApellido}`;
+    let nombreApellido = "Gloria Medina";
+
 
     let depósitos = operaciones.filter(num => num > 0);
     let saldoTotalDepósitos = depósitos.reduce((acum, num) => acum + num, 0);
-    let mensajeSaldoCliente = `El saldo total de depósitos es: $${saldoTotalDepósitos}`;
+    let mensajeSaldoCliente = `El monto total de los depósitos es de: $${saldoTotalDepósitos}`;
 
 
     let retiros = operaciones.filter(num => num < 0);
     let saldoActualRetiros = retiros.reduce((acum, num) => acum + num, 0);
-    let mensajeRetiroCliente = `El saldo actual de retiros es: $${saldoActualRetiros}`;
+    let mensajeRetiroCliente = `El monto total de los retiros es de: $${Math.abs(saldoActualRetiros)}.`;
 
 
     let saldoActualCliente = (saldoTotalDepósitos + saldoActualRetiros);
-    let mensajeSaldoActualCliente = `El saldo actual del cliente es: $${saldoActualCliente}`;
+    let mensajeSaldoActualCliente = `su saldo actual en la cuenta es de: $${saldoActualCliente}.`;
 
     return {
-        mensajeNombre,
+        nombreApellido,
         mensajeSaldoCliente,
         mensajeRetiroCliente,
         mensajeSaldoActualCliente
     };
-
-
+    
 }
 
-console.log(bankBalance(operaciones));
+
+// console.log(bankBalance(operaciones));
+
+
+// let balances = bankBalance(operaciones);
+
+// console.log(`Estimada ${balances.nombreApellido}:`);
+// console.log(balances.mensajeSaldoCliente);
+// console.log(balances.mensajeRetiroCliente);
+// console.log(`Por lo tanto, ${balances.mensajeSaldoActualCliente}`);
+
+module.exports = bankBalance
