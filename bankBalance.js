@@ -1,4 +1,7 @@
 
+const prompt = require('prompt-sync')();
+
+
 // 1. En Visual Studio Code crear la carpeta de trabajo y dentro de ella inicializar un
 // repositorio local y vincularlo con un repositorio remoto cuyo nombre debe
 // tener la siguiente nomenclatura: nombreApellido_tp13
@@ -50,9 +53,28 @@ console.log(calculateBalances(operaciones));
 
 function bankBalance(operaciones){
 
-    let nombre = prompt(nombre = "Ingrese su nombre: ");
+    let nombreApellido = prompt("Ingrese su Nombre y Apellido: ");
+    let mensajeNombre = `Su Nombre y Apellido es: ${nombreApellido}`;
 
-    let apellido = prompt(apellido = "Ingrese su apellido: ");
+    let depósitos = operaciones.filter(num => num > 0);
+    let saldoTotalDepósitos = depósitos.reduce((acum, num) => acum + num, 0);
+    let mensajeSaldoCliente = `El saldo total de depósitos es: $${saldoTotalDepósitos}`;
+
+
+    let retiros = operaciones.filter(num => num < 0);
+    let saldoActualRetiros = retiros.reduce((acum, num) => acum + num, 0);
+    let mensajeRetiroCliente = `El saldo actual de retiros es: $${saldoActualRetiros}`;
+
+
+    let saldoActualCliente = (saldoTotalDepósitos + saldoActualRetiros);
+    let mensajeSaldoActualCliente = `El saldo actual del cliente es: $${saldoActualCliente}`;
+
+    return {
+        mensajeNombre,
+        mensajeSaldoCliente,
+        mensajeRetiroCliente,
+        mensajeSaldoActualCliente
+    };
 
 
 }
