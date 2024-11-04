@@ -51,9 +51,9 @@ function calculateBalances(operaciones) {
 // saldo actual
 
 
-function bankBalance(operaciones) {
+function bankBalance(nombre, apellido, operaciones) {
 
-    let nombreApellido = "Gloria Medina";
+    let nombreApellido = `${nombre} ${apellido}`;
 
 
     let depósitos = operaciones.filter(num => num > 0);
@@ -79,15 +79,15 @@ function bankBalance(operaciones) {
 }
 
 
-// console.log(bankBalance(operaciones));
+console.log(bankBalance("Gloria", "Medina", operaciones));
 
 
-// let balances = bankBalance(operaciones);
+let balances = bankBalance("Gloria", "Medina", operaciones);
 
-// console.log(`Estimada ${balances.nombreApellido}:`);
-// console.log(balances.mensajeSaldoCliente);
-// console.log(balances.mensajeRetiroCliente);
-// console.log(`Por lo tanto, ${balances.mensajeSaldoActualCliente}`);
+console.log(`Estimada ${balances.nombreApellido}:`);
+console.log(balances.mensajeSaldoCliente);
+console.log(balances.mensajeRetiroCliente);
+console.log(`Por lo tanto, ${balances.mensajeSaldoActualCliente}`);
 
 module.exports = bankBalance
 
