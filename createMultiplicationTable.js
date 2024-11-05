@@ -7,6 +7,7 @@
 // parámetro. Tendrá la responsabilidad de generar de manera automática la
 // tabla de multiplicar del 1 al 10.
 // 3. Lo ideal es que la función muestre al usuario algo así, con cada una de las tablas:
+
 // Tabla de multiplicar x 1
 // —--------------------------
 // 1*1=1
@@ -20,25 +21,27 @@
 // 1*9=9
 // 1*10=10
 // —--------------------------
+
 // 4. La función solo debe ejecutar los console.log() internamente para mostrar las
 // tablas solicitadas
 
 
 function createMultiplicationTable() {
-    
-    for (let i = 1; i <= 1; i++) {
-        console.log(`Tabla de multiplicar x ${i}`);
+
+    for (let Tabla = 1; Tabla <= 10; Tabla++) {
+        
+        console.log(`Tabla de multiplicar x ${Tabla}`);
         console.log('--------------------------');
 
-        let tablas = [1,2,3,4,5,6,7,8,9,10]
-        for (let j = 0; j < tablas.length; j++) { 
-            (`1 * ${j} = ${1 * j}`);
-        }
+        for (let j = 1; j <= 10; j++) 
+            console.log(`${Tabla} * ${j} = ${Tabla * j}`);
+        
 
         console.log('--------------------------');
-
     }
+
+
 }
 
-createMultiplicationTable();
 
+createMultiplicationTable();
